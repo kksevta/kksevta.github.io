@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Halli Mane · Gunjur, Bengaluru</title>
+<meta name="description" content="Hotel Halli Mane — home-style South Indian food on Gunjur–Mugalur Road, Bengaluru. Open every day, 6 AM to 10 PM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Noto+Sans+Kannada:wght@500;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --leaf:#1f4d2b; --leaf-2:#2f6b3c; --turmeric:#e8a317; --chilli:#b8361f;
+    --clay:#c96a3d; --rice:#fbf6ec; --husk:#f1e6d0; --ink:#231a12; --muted:#6b5a48;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--rice);color:var(--ink);line-height:1.6;overflow-x:hidden}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.05}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+  /* ---------- nav ---------- */
+  nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s, box-shadow .3s}
+  nav.solid{background:rgba(251,246,236,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:Fraunces,serif;font-weight:900;font-size:1.25rem;text-decoration:none;color:#fff;transition:color .3s}
+  nav.solid .logo{color:var(--leaf)}
+  .logo span{font-family:'Noto Sans Kannada',sans-serif;font-weight:800;color:var(--turmeric);margin-left:6px;font-size:.95rem}
+  .nav-cta{background:var(--turmeric);color:var(--ink);text-decoration:none;font-weight:600;padding:9px 16px;border-radius:999px;font-size:.9rem}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;
+    background:radial-gradient(120% 80% at 50% 110%, #3d8a4c 0%, var(--leaf) 45%, #10291a 100%)}
+  .sun{position:absolute;width:520px;height:520px;border-radius:50%;left:50%;bottom:-300px;transform:translateX(-50%);
+    background:radial-gradient(circle,#ffd36b 0%,#f0a020 40%,rgba(240,160,32,0) 70%);animation:rise 3.5s ease-out forwards;opacity:.9}
+  @keyframes rise{from{bottom:-520px}to{bottom:-260px}}
+  .leaf-vein{position:absolute;inset:0;opacity:.09;background:
+    repeating-linear-gradient(115deg,transparent 0 46px,#fff 46px 47px),
+    repeating-linear-gradient(65deg,transparent 0 46px,#fff 46px 47px)}
+  .hero-inner{position:relative;z-index:2;padding:120px 0 140px}
+  .kn{font-family:'Noto Sans Kannada',sans-serif;font-weight:800;color:var(--turmeric);font-size:clamp(1.4rem,4vw,2rem);letter-spacing:.02em;
+    opacity:0;animation:up .8s .2s forwards}
+  .hero h1{font-size:clamp(3.2rem,12vw,8rem);font-weight:900;letter-spacing:-.02em;margin:.1em 0 .15em;opacity:0;animation:up .9s .35s forwards}
+  .hero p.tag{font-size:clamp(1.05rem,2.6vw,1.35rem);max-width:560px;margin:0 auto;color:#e9f2e6;opacity:0;animation:up .9s .55s forwards}
+  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px;opacity:0;animation:up .9s .75s forwards}
+  @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-gold{background:var(--turmeric);color:var(--ink)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+  .status{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:.92rem;background:rgba(0,0,0,.25);padding:7px 14px;border-radius:999px;opacity:0;animation:up .9s .9s forwards}
+  .dot{width:9px;height:9px;border-radius:50%;background:#7be08a;box-shadow:0 0 0 0 rgba(123,224,138,.7);animation:pulse 1.8s infinite}
+  .dot.closed{background:#ff8a7a;animation:none}
+  @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(123,224,138,0)}100%{box-shadow:0 0 0 0 rgba(123,224,138,0)}}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--chilli);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;font-family:Fraunces,serif;font-size:1.15rem;font-weight:700}
+  .ticker .track{display:inline-block;animation:slide 32s linear infinite}
+  .ticker span{margin:0 22px}
+  .ticker span.star{color:var(--turmeric)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:96px 0}
+  .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:600;color:var(--clay)}
+  .sec-title{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:900;margin:.25em 0 .4em;color:var(--leaf)}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:620px}
+
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .meaning{background:var(--leaf);color:#fff;border-radius:28px;padding:40px;position:relative;overflow:hidden}
+  .meaning .big{font-family:'Noto Sans Kannada',sans-serif;font-weight:800;font-size:clamp(3rem,9vw,4.6rem);color:var(--turmeric);line-height:1.1}
+  .meaning .eq{font-family:Fraunces,serif;font-size:1.6rem;margin-top:10px}
+  .meaning small{display:block;margin-top:16px;color:#cfe3cb}
+  .meaning::after{content:"";position:absolute;right:-60px;bottom:-60px;width:200px;height:200px;border-radius:50%;background:var(--leaf-2)}
+
+  /* ---------- day timeline ---------- */
+  .day{background:var(--husk)}
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+  .slot{border-radius:24px;padding:30px 26px 34px;color:#fff;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;
+    transition:transform .3s}
+  .slot:hover{transform:translateY(-6px) rotate(-.4deg)}
+  .slot.morning{background:linear-gradient(160deg,#f4b740,#d9771f)}
+  .slot.noon{background:linear-gradient(160deg,#c96a3d,#9b3a1f)}
+  .slot.night{background:linear-gradient(160deg,#28456b,#141f38)}
+  .slot .time{font-size:.85rem;font-weight:600;opacity:.85;letter-spacing:.08em;text-transform:uppercase}
+  .slot h3{font-size:2rem;margin:8px 0 14px}
+  .slot ul{list-style:none;margin-top:auto}
+  .slot li{padding:7px 0;border-top:1px solid rgba(255,255,255,.22);font-weight:500}
+  .slot .icon{position:absolute;right:20px;top:18px;font-size:2.4rem}
+
+  /* ---------- plate ---------- */
+  .plate-sec{text-align:center}
+  .plate-wrap{position:relative;width:min(440px,88vw);aspect-ratio:1;margin:46px auto 0}
+  .banana{position:absolute;inset:0;border-radius:46% 54% 50% 50%/55% 45% 55% 45%;background:
+     repeating-linear-gradient(100deg,rgba(255,255,255,.06) 0 2px,transparent 2px 22px),
+     linear-gradient(135deg,#3f9a4f,#1f5f2e);transform:rotate(-12deg);box-shadow:0 30px 60px -20px rgba(31,77,43,.6)}
+  .item{position:absolute;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:600;color:var(--ink);cursor:pointer;
+    transition:transform .25s;box-shadow:0 6px 14px rgba(0,0,0,.25);text-align:center;padding:6px}
+  .item:hover,.item.on{transform:scale(1.12)}
+  .i-idli{width:26%;height:26%;left:16%;top:22%;background:radial-gradient(circle at 35% 30%,#fff,#ece6d6)}
+  .i-sambar{width:22%;height:22%;left:46%;top:14%;background:radial-gradient(circle at 35% 30%,#e9913b,#b85a1c);color:#fff}
+  .i-chitranna{width:30%;height:30%;left:52%;top:42%;background:radial-gradient(circle at 35% 30%,#ffe066,#e8b512)}
+  .i-tomato{width:24%;height:24%;left:20%;top:56%;background:radial-gradient(circle at 35% 30%,#f2795b,#c4432a);color:#fff}
+  .i-chutney{width:14%;height:14%;left:40%;top:44%;background:radial-gradient(circle at 35% 30%,#fff9ee,#d9e8c8)}
+  .plate-info{min-height:56px;margin-top:28px;font-size:1.1rem;color:var(--muted)}
+  .plate-info b{color:var(--leaf);font-family:Fraunces,serif;font-size:1.3rem}
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--ink);color:var(--rice)}
+  .visit .sec-title{color:var(--turmeric)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;margin-top:30px}
+  .card{background:#2f241a;border-radius:22px;padding:28px}
+  .card h3{font-size:1.25rem;color:var(--turmeric);margin-bottom:10px}
+  .card p{color:#d9cbb6}
+  .hours{width:100%;border-collapse:collapse;margin-top:6px}
+  .hours td{padding:7px 0;border-bottom:1px solid #3e3024;color:#d9cbb6}
+  .hours td:last-child{text-align:right}
+  .hours tr.today td{color:#fff;font-weight:600}
+  .hours tr.today td:first-child::before{content:"● ";color:var(--turmeric)}
+  .map{border-radius:22px;overflow:hidden;min-height:380px;background:#2f241a}
+  .map iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.2) contrast(1.05)}
+  .stack{display:grid;gap:18px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+  footer{background:#17110b;color:#a8957d;text-align:center;padding:36px 22px;font-size:.88rem}
+  footer .kn2{font-family:'Noto Sans Kannada',sans-serif;color:var(--turmeric);font-weight:800;font-size:1.2rem}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s, transform .8s}
+  .reveal.in{opacity:1;transform:none}
+
+  /* floating call */
+  .fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--chilli);color:#fff;
+    display:grid;place-items:center;font-size:1.5rem;text-decoration:none;box-shadow:0 10px 24px rgba(184,54,31,.45);transition:transform .2s}
+  .fab:hover{transform:scale(1.08)}
+
+  @media (max-width:860px){
+    .about,.visit-grid{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr}
+    .slot{min-height:auto}
+    section{padding:72px 0}
+    .nav-cta{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.kn,.hero h1,.hero p.tag,.hero .btns,.status{opacity:1}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo">Halli Mane<span>ಹಳ್ಳಿ ಮನೆ</span></a>
+    <a href="tel:+919742143750" class="nav-cta">Call +91 97421 43750</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="leaf-vein"></div>
+  <div class="sun"></div>
+  <div class="hero-inner wrap">
+    <div class="kn">ಹಳ್ಳಿ ಮನೆ</div>
+    <h1>Hotel Halli Mane</h1>
+    <p class="tag">Home-style South Indian food on the Gunjur–Mugalur road. Hot idlis at sunrise, spicy fries by night.</p>
+    <div class="btns">
+      <a class="btn btn-gold" href="https://maps.app.goo.gl/BexizCTN88TUSwqd6" target="_blank" rel="noopener">📍 Get directions</a>
+      <a class="btn btn-ghost" href="#day">See the day →</a>
+    </div>
+    <div class="status"><span class="dot" id="dot"></span><span id="statusText">Checking hours…</span></div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Idli Sambar</span><span class="star">✦</span><span>Chitranna</span><span class="star">✦</span><span>Lemon Rice</span><span class="star">✦</span><span>Tomato Bath</span><span class="star">✦</span><span>Mutton Fry</span><span class="star">✦</span><span>Bangude Fish</span><span class="star">✦</span><span>Egg Gobi Rice</span><span class="star">✦</span>
+    <span>Idli Sambar</span><span class="star">✦</span><span>Chitranna</span><span class="star">✦</span><span>Lemon Rice</span><span class="star">✦</span><span>Tomato Bath</span><span class="star">✦</span><span>Mutton Fry</span><span class="star">✦</span><span>Bangude Fish</span><span class="star">✦</span><span>Egg Gobi Rice</span><span class="star">✦</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="eyebrow">The name says it all</div>
+      <h2 class="sec-title">Food that tastes like a village kitchen.</h2>
+      <p class="lead">Out on the edge of Bengaluru, past Varthur, Halli Mane serves the kind of meals you'd get at a family home: simple, filling and full of flavour. Veg and non-veg, breakfast to dinner, every day of the week.</p>
+    </div>
+    <div class="meaning reveal">
+      <div class="big">ಹಳ್ಳಿ ಮನೆ</div>
+      <div class="eq">Halli = village · Mane = home</div>
+      <small>“Village home” in Kannada.</small>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="day">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">6 AM → 10 PM</div>
+      <h2 class="sec-title">A whole day at Halli Mane</h2>
+      <p class="lead">Doors open before sunrise and stay open until late, so there's a plate waiting whenever you get here.</p>
+    </div>
+    <div class="timeline">
+      <div class="slot morning reveal">
+        <div class="icon">🌅</div>
+        <div class="time">From 6:00 AM</div>
+        <h3>Breakfast</h3>
+        <p>South Indian tiffin classics, done the home way.</p>
+        <ul><li>Idli sambar</li><li>Chitranna</li><li>Lemon rice</li><li>Tomato bath</li></ul>
+      </div>
+      <div class="slot noon reveal">
+        <div class="icon">☀️</div>
+        <div class="time">Afternoon</div>
+        <h3>Lunch</h3>
+        <p>Veg and non-veg meals for the midday hunger.</p>
+        <ul><li>Rice meals</li><li>Veg options</li><li>Non-veg specials</li></ul>
+      </div>
+      <div class="slot night reveal">
+        <div class="icon">🌙</div>
+        <div class="time">Until 10:00 PM</div>
+        <h3>Dinner</h3>
+        <p>The spicy side of the menu comes out.</p>
+        <ul><li>Mutton fry</li><li>Bangude (mackerel) fish</li><li>Egg gobi rice</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plate-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Tap the leaf</div>
+      <h2 class="sec-title">Build your breakfast</h2>
+    </div>
+    <div class="plate-wrap reveal" id="plate">
+      <div class="banana"></div>
+      <div class="item i-idli" data-n="Idli" data-d="Soft, steamed rice cakes, the heart of a South Indian morning.">Idli</div>
+      <div class="item i-sambar" data-n="Sambar" data-d="Lentil and vegetable stew to pour over everything.">Sambar</div>
+      <div class="item i-chitranna" data-n="Chitranna" data-d="Karnataka's tangy, turmeric-yellow lemon rice with peanuts.">Chitranna</div>
+      <div class="item i-tomato" data-n="Tomato Bath" data-d="Spiced semolina cooked with ripe tomatoes.">Tomato bath</div>
+      <div class="item i-chutney" data-n="Chutney" data-d="Fresh coconut chutney on the side.">Chutney</div>
+    </div>
+    <p class="plate-info" id="plateInfo">Tap any item on the leaf ☝️</p>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="color:#e9b765">Come hungry</div>
+      <h2 class="sec-title">Find us</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="stack reveal">
+        <div class="card">
+          <h3>📍 Address</h3>
+          <p>WQ5V+W6Q, Gunjur – Mugalur Road,<br>Gonighattapura, Karnataka 562125</p>
+          <div class="actions">
+            <a class="btn btn-gold" href="https://maps.app.goo.gl/BexizCTN88TUSwqd6" target="_blank" rel="noopener">Open in Maps</a>
+            <a class="btn btn-ghost" href="tel:+919742143750">📞 Call</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🕕 Hours</h3>
+          <table class="hours" id="hours"></table>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="Map to Hotel Halli Mane" loading="lazy"
+          src="https://maps.google.com/maps?q=12.9098287,77.7931128&z=16&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="kn2">ಹಳ್ಳಿ ಮನೆ</div>
+  <p>Hotel Halli Mane · Gunjur – Mugalur Road, Bengaluru · +91 97421 43750</p>
+  <p style="margin-top:8px;opacity:.7">Concept website. Please call ahead to confirm hours and today's menu.</p>
+</footer>
+
+<a class="fab" href="tel:+919742143750" aria-label="Call Hotel Halli Mane">📞</a>
+
+<script>
+  // nav background on scroll
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), {passive:true});
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // hours + live open/closed status in IST
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const ist = new Date(new Date().toLocaleString('en-US', {timeZone:'Asia/Kolkata'}));
+  const today = ist.getDay(), mins = ist.getHours()*60 + ist.getMinutes();
+  const OPEN = 6*60, CLOSE = 22*60;
+  const order = [1,2,3,4,5,6,0];
+  document.getElementById('hours').innerHTML = order.map(d =>
+    `<tr class="${d===today?'today':''}"><td>${days[d]}</td><td>6:00 AM – 10:00 PM</td></tr>`).join('');
+  const dot = document.getElementById('dot'), st = document.getElementById('statusText');
+  if (mins >= OPEN && mins < CLOSE) {
+    const left = CLOSE - mins;
+    st.textContent = left <= 60 ? `Open now · closes in ${left} min` : 'Open now · until 10 PM';
+  } else {
+    dot.classList.add('closed');
+    st.textContent = 'Closed now · opens at 6 AM';
+  }
+
+  // interactive leaf
+  const info = document.getElementById('plateInfo');
+  document.querySelectorAll('.item').forEach(it => it.addEventListener('click', () => {
+    document.querySelectorAll('.item').forEach(x => x.classList.remove('on'));
+    it.classList.add('on');
+    info.innerHTML = `<b>${it.dataset.n}</b><br>${it.dataset.d}`;
+  }));
+</script>
+</body>
+</html>
